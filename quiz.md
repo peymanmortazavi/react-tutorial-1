@@ -18,20 +18,22 @@ var Comment = React.createClass({
 ```
 ### Q1: Where does the value of ``this.props.author`` get specified?
 
-{{ your answer here }}
+In HTML attributes. So if you were to use this class, you'd use <Comment author="some value" />
+And that's where this.props.author gets set.
 
 ### Q2: Where does the value of ``this.props.children`` get specified?
 
-{{ your answer here }}
+It's the children of the Comment class. So if we were to use <Comment > stuff </Comment>
+stuff would be this.props.children, everything that gets wraped by Comment element, is children.
 
 
 ### Q3: What does ``className="comment"`` do?
 
-{{ your answer here }}
+It is basically assigning CSS classes but in JSX.
 
 ### Q4: What is ``dangerouslySetInnerHTML``? Why is it such a long word for an API method?
 
-{{ your answer here }}
+It is long because it is not meant to be used unless in special occasions where doing otherwise is hard. Note that using this API is insecure, it may lead to an XSS attack. It basically let's you put dynamic raw html markups. Which means that someone could inject HTML elements referencing a javascript code that could potentially be harmful to users. In certain situations, however, using this makes sense.
 
 # CommentBox
 ```javascript
@@ -53,20 +55,20 @@ var CommentBox = React.createClass({
 
 ### Q5: How does ``$`` get defined? Is it part of the ReactJS framework?
 
-{{your answer here}}
+No it's provided by jQuery. it's a basic ajax call.
 
 ### Q6: Where does the value of ``this.props.url`` get specified?
 
-{{your answer here}}
+Same as question one, it gets set from the parent using HTML params or XML attributes.
 
 
 ### Q7: What would happen to the statement ``this.setState`` if ``bind(this)`` is removed? Why?
 
-{{your answer here}}
+Binding is for giving context, if you don't bind the function with your current object instance (aka this) then you won't be able to use this.props and/or this.state or such contextual values inside that function. 
 
 ### Q8: Who calls ``loadCommentsFromServer``? When? 
 
-{{your answer here}}
+it gets called from 'componentDidMount' once and then it get's called every 'pollInterval' seconds. because it's scheduled to get called.
 
 
 ```javascript
@@ -113,25 +115,28 @@ var CommentBox = React.createClass({
 
 ### Q9: What is the purpose of ``this.state``? How is this different from ``this.props``?
 
-{{your answer here}}
+State is different Properties, properties are given to the class from parent. State is owned by the class itself not its parent. It is private to the class and can only be changed by calling this.setState. This should be used when we need a mutable object. Properties, however, are owner by parents and the React class is only supposed to render according to the given property.
 
 ### Q10: What is the initial value of ``this.state.data``? How is the initial value specified?
 
-{{your answer here}}
+It is initialized as empty array.
+In the class, implement 'getInitialState' and return an object, this object is your initial state.
 
 
 ### Q11: What is the new value of ``this.state.data``? How is this new value set?
 
-{{your answer here}}
+It can be changed by calling this.setState(<state object>);
 
 
 ### Q12: What is the purpose of ``componentDidMount`` callback?
 
-{{your answer here}}
+If there are things need to be done the first time the component get mount, you put those in 'componentDidMount'.
+Note that, rerendering will not call this function.
+
 
 ### Q13: What is the purpose of ``getInitialState``?
 
-{{your answer here}}
+To set the initial state of your states. In this example, you need to set a default value for your 'data' so you can work with your states.
 
 
 # CommentList
@@ -160,15 +165,16 @@ var CommentList = React.createClass({
 ```
 ### Q14: How does the value of ``this.props.data`` get set?
 
-{{your answer here}}
+It is automatically updated by React, it gets set from parent's state. when that state is changed, React will automatically change the props of the children elements.
 
 ### Q15: What is the value of ``commentNodes``?
 
-{{your answer here}}
+It is an array of ReactElement's that will later get compiler to HTML.
 
 ### Q16: Where does the value of ``{comment.text}`` go on the rendered page?
 
-{{your answer here}}
+Since it's the children for Comment class.
+It'll be the chilren of a div. The div that is rendered version of a Comment class.
 
 # CommentForm
 ```javascript
@@ -204,16 +210,16 @@ React.render(
 
 ### Q17: What is the purpose of ``e.preventDefault()``?
 
-{{answer here}}
+It prevents the browser from doing the default behaviour which is refreshing the page.
 
 ### Q18: What is the value of ``this.props.onCommentSubmit``? What does it get specified?
 
-{{answer here}}
+Gets specified when it's parent is creating this class. So CommentBox sets that.
 
 ### Q19: Where does ``this.refs.author`` point to?
 
-{{answer here}}
+points to the ReactElement who has 'ref=author'.
 
 ### Q20: What does ``getDOMNode()`` do?
 
-{{answer here}}
+It returns the HTML Document node attached to the React class.
