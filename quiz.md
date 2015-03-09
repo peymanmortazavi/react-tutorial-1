@@ -18,13 +18,13 @@ var Comment = React.createClass({
 ```
 ### Q1: Where does the value of ``this.props.author`` get specified?
 
-In HTML attributes. So if you were to use this class, you'd use <Comment author="some value" />
-And that's where this.props.author gets set.
+In HTML attributes. So if you were to use this class, you'd use ``<Comment author="some value" />``
+And that's where ``this.props.author`` gets set.
 
 ### Q2: Where does the value of ``this.props.children`` get specified?
 
-It's the children of the Comment class. So if we were to use <Comment > stuff </Comment>
-stuff would be this.props.children, everything that gets wraped by Comment element, is children.
+It's the children of the Comment class. So if we were to use ``<Comment > stuff </Comment>``
+stuff would be ``this.props.children``, everything that gets wraped by Comment element, is children.
 
 
 ### Q3: What does ``className="comment"`` do?
@@ -125,7 +125,7 @@ In the class, implement 'getInitialState' and return an object, this object is y
 
 ### Q11: What is the new value of ``this.state.data``? How is this new value set?
 
-It can be changed by calling this.setState(<state object>);
+It can be changed by calling ``this.setState(<state object>);``
 
 
 ### Q12: What is the purpose of ``componentDidMount`` callback?
@@ -218,7 +218,7 @@ Gets specified when it's parent is creating this class. So CommentBox sets that.
 
 ### Q19: Where does ``this.refs.author`` point to?
 
-points to the ReactElement who has 'ref=author'.
+points to the ReactElement who has ``'ref=author'``.
 
 ### Q20: What does ``getDOMNode()`` do?
 
