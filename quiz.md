@@ -5,6 +5,7 @@ var converter = new Showdown.converter();
 var Comment = React.createClass({
   render: function() {
     var rawMarkup = converter.makeHtml(this.props.children.toString());
+    console.log(this.props.children.toString());
     return (
       <div className="comment">
         <h2 className="commentAuthor">
@@ -18,7 +19,7 @@ var Comment = React.createClass({
 ```
 ### Q1: Where does the value of ``this.props.author`` get specified?
 
-{{ your answer here }}
+{{ comments.json }}
 
 ### Q2: Where does the value of ``this.props.children`` get specified?
 
@@ -27,11 +28,11 @@ var Comment = React.createClass({
 
 ### Q3: What does ``className="comment"`` do?
 
-{{ your answer here }}
+{{ Gives the formatting for a comment }}
 
 ### Q4: What is ``dangerouslySetInnerHTML``? Why is it such a long word for an API method?
 
-{{ your answer here }}
+{{ dangerouslySetInnerHTML allows you to insert HTML }}
 
 # CommentBox
 ```javascript
@@ -53,20 +54,20 @@ var CommentBox = React.createClass({
 
 ### Q5: How does ``$`` get defined? Is it part of the ReactJS framework?
 
-{{your answer here}}
+{{ The $ is used to define variables }}
 
 ### Q6: Where does the value of ``this.props.url`` get specified?
 
-{{your answer here}}
+{{ this.props.url is specified from the parent url }}
 
 
 ### Q7: What would happen to the statement ``this.setState`` if ``bind(this)`` is removed? Why?
 
-{{your answer here}}
+{{ The state would not be updated }}
 
 ### Q8: Who calls ``loadCommentsFromServer``? When? 
 
-{{your answer here}}
+{{ loadCommentsFromServer is called when commentBox renders }}
 
 
 ```javascript

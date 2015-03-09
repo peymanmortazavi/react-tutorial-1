@@ -1,20 +1,11 @@
-/**
- * This file provided by Facebook is for non-commercial testing and evaluation purposes only.
- * Facebook reserves all rights not expressly granted.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * FACEBOOK BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
- * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
+# Comment
 
+```javascript
 var converter = new Showdown.converter();
-
 var Comment = React.createClass({
   render: function() {
     var rawMarkup = converter.makeHtml(this.props.children.toString());
+    console.log(this.props.children.toString());
     return (
       <div className="comment">
         <h2 className="commentAuthor">
@@ -25,7 +16,26 @@ var Comment = React.createClass({
     );
   }
 });
+```
+### Q1: Where does the value of ``this.props.author`` get specified?
 
+{{ comments.json }}
+
+### Q2: Where does the value of ``this.props.children`` get specified?
+
+{{ your answer here }}
+
+
+### Q3: What does ``className="comment"`` do?
+
+{{ Gives the formatting for a comment }}
+
+### Q4: What is ``dangerouslySetInnerHTML``? Why is it such a long word for an API method?
+
+{{ dangerouslySetInnerHTML allows you to insert HTML }}
+
+# CommentBox
+```javascript
 var CommentBox = React.createClass({
   loadCommentsFromServer: function() {
     $.ajax({
@@ -39,6 +49,29 @@ var CommentBox = React.createClass({
       }.bind(this)
     });
   },
+
+```
+
+### Q5: How does ``$`` get defined? Is it part of the ReactJS framework?
+
+{{your answer here}}
+
+### Q6: Where does the value of ``this.props.url`` get specified?
+
+{{your answer here}}
+
+
+### Q7: What would happen to the statement ``this.setState`` if ``bind(this)`` is removed? Why?
+
+{{your answer here}}
+
+### Q8: Who calls ``loadCommentsFromServer``? When? 
+
+{{your answer here}}
+
+
+```javascript
+	
   handleCommentSubmit: function(comment) {
     var comments = this.state.data;
     comments.push(comment);
@@ -77,6 +110,34 @@ var CommentBox = React.createClass({
     );
   }
 });
+```
+
+### Q9: What is the purpose of ``this.state``? How is this different from ``this.props``?
+
+{{your answer here}}
+
+### Q10: What is the initial value of ``this.state.data``? How is the initial value specified?
+
+{{your answer here}}
+
+
+### Q11: What is the new value of ``this.state.data``? How is this new value set?
+
+{{your answer here}}
+
+
+### Q12: What is the purpose of ``componentDidMount`` callback?
+
+{{your answer here}}
+
+### Q13: What is the purpose of ``getInitialState``?
+
+{{your answer here}}
+
+
+# CommentList
+
+```javascript
 
 var CommentList = React.createClass({
   render: function() {
@@ -97,6 +158,21 @@ var CommentList = React.createClass({
     );
   }
 });
+```
+### Q14: How does the value of ``this.props.data`` get set?
+
+{{your answer here}}
+
+### Q15: What is the value of ``commentNodes``?
+
+{{your answer here}}
+
+### Q16: Where does the value of ``{comment.text}`` go on the rendered page?
+
+{{your answer here}}
+
+# CommentForm
+```javascript
 
 var CommentForm = React.createClass({
   handleSubmit: function(e) {
@@ -125,4 +201,20 @@ React.render(
   <CommentBox url="comments.json" pollInterval={2000} />,
   document.getElementById('content')
 );
+```
 
+### Q17: What is the purpose of ``e.preventDefault()``?
+
+{{answer here}}
+
+### Q18: What is the value of ``this.props.onCommentSubmit``? What does it get specified?
+
+{{answer here}}
+
+### Q19: Where does ``this.refs.author`` point to?
+
+{{answer here}}
+
+### Q20: What does ``getDOMNode()`` do?
+
+{{answer here}}
