@@ -169,7 +169,7 @@ It is automatically updated by React, it gets set from parent's state. when that
 
 ### Q15: What is the value of ``commentNodes``?
 
-It is an array of ReactElement's that will later get compiler to HTML.
+It is an array of ReactElement's that will later get compiled to HTML.
 
 ### Q16: Where does the value of ``{comment.text}`` go on the rendered page?
 
