@@ -18,13 +18,13 @@ var Comment = React.createClass({
 ```
 ### Q1: Where does the value of ``this.props.author`` get specified?
 
-In HTML attributes. So if you were to use this class, you'd use ``<Comment author="some value" />``
-And that's where ``this.props.author`` gets set.
+<Comment author="?"/>
 
 ### Q2: Where does the value of ``this.props.children`` get specified?
 
-It's the children of the Comment class. So if we were to use ``<Comment > stuff </Comment>``
-stuff would be ``this.props.children``, everything that gets wraped by Comment element, is children.
+  <Comment>
+          ? - children 
+  </Comment>
 
 
 ### Q3: What does ``className="comment"`` do?
